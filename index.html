@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1 class="heading">Digital Clock</h1>
+      <div class="wrapper">
+        <h1 id="dclock">00:00:00</h1>
+      </div>
+      <div class="buttons">
+        <button onclick="startTimer()">Start</button>
+        <button class="reset" onclick="allReset()">Reset</button>
+        <button onclick="stopTimer()">Stop</button>
+      </div>
+    </div>
+    <div class="Clock">
+      <script>
+        function startTimer() {
+          timer = setInterval(() => {
+            document.getElementById("dclock").innerHTML =
+              new Date().toLocaleTimeString();
+          }, 1000);
+        }
+
+        function stopTimer() {
+          clearInterval(timer);
+        }
+        function allReset() {
+          stopTimer();
+          document.getElementById("dclock").innerHTML = "00:00:00";
+        
+        }
+      </script>
+    </div>
+  </body>
+</html>
